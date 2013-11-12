@@ -1,0 +1,8 @@
+<resources>
+    
+    <string name="welcome_header">Welcome to the Pirate Map, your guide to AASU! Please select the option that best describes you.</string>
+    <string name="campus_visitor">Campus Visitor</string>
+    <string name="prospective_student">Prospective Student</string>
+    <string name="current_student">Current Student</string>
+    
+</resources>

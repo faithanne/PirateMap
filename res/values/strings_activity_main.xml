@@ -1,0 +1,9 @@
+<resources>
+    
+    <string name="title_activity_main">Pirate Map</string>
+    <string name="title_section1">Tour</string>
+    <string name="title_section2">Map</string>
+    <string name="title_section3">Schedule</string>
+    <string name="title_section4">Events</string>
+    
+</resources>
