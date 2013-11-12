@@ -24,6 +24,7 @@ public class WelcomeActivity extends Activity {
 		// TODO: Send user directly to the map
 		// TODO: Pass some indicator that will disable irrelevant map options (schedule, events etc.)
 		Intent intent = new Intent(this, MainActivity.class);
+		
 		startActivity(intent);
 	}
 	

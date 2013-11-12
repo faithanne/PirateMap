@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <drawable name="action_bar_color">#5D1216</drawable>
+    <drawable name="tab_unselected">#891B24</drawable>
+    <drawable name="tab_selected">#F5CF46</drawable>
+    <drawable name="tab_unselected_focused">#891B24</drawable>
+    <drawable name="tab_selected_focused">#891B24</drawable>
+    <drawable name="tab_unselected_pressed">#891B24</drawable>
+    <drawable name="tab_selected_pressed">#891B24</drawable>    
+    
+</resources>
