@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.tunabytes.piratemap"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tunabytes.piratemap"
     android:versionCode="1"
-    android:versionName="1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -14,9 +15,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.tunabytes.piratemap.WelcomeActivity"
-            android:label="@string/app_name" 
+            android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-   			android:configChanges="orientation|keyboardHidden">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,9 +28,7 @@
             android:name="com.tunabytes.piratemap.StudentLoginActivity"
             android:label="@string/title_activity_student_login"
             android:parentActivityName="com.tunabytes.piratemap.WelcomeActivity"
-            android:windowSoftInputMode="adjustResize|stateVisible" 
-            android:screenOrientation="portrait"
-   			android:configChanges="orientation|keyboardHidden">
+            android:windowSoftInputMode="adjustResize|stateVisible" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.tunabytes.piratemap.MainActivity" />
@@ -53,6 +52,16 @@
         <activity
             android:name="com.tunabytes.piratemap.EventsFragment"
             android:label="@string/title_activity_events_fragment" >
+        </activity>
+        <activity
+            android:name="com.tunabytes.piratemap.ChooseMajorActivity"
+            android:label="@string/title_activity_choose_major"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.tunabytes.piratemap.WelcomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tunabytes.piratemap.WelcomeActivity" />
         </activity>
     </application>
 

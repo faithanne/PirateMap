@@ -24,15 +24,13 @@ public class WelcomeActivity extends Activity {
 		// TODO: Send user directly to the map
 		// TODO: Pass some indicator that will disable irrelevant map options (schedule, events etc.)
 		Intent intent = new Intent(this, MainActivity.class);
-		
 		startActivity(intent);
 	}
 	
 	public void prospectiveStudentLogin(View view) {
-		// TODO: Send user to a page that will prompt them for their major of interest
 		// TODO: Pass some indicator that will disable irrelevant map options (schedule, events, etc.)
 		// For now, this will immediately direct you to the map, in order to bypass the login screen
-		Intent intent = new Intent(this, MainActivity.class);
+		Intent intent = new Intent(this, ChooseMajorActivity.class);
 		startActivity(intent);
 	}
 	

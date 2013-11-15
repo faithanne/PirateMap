@@ -1,0 +1,302 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+	<LinearLayout 
+	    android:id="@+id/LinearLayout1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    android:orientation="vertical"
+	    android:paddingBottom="@dimen/activity_vertical_margin"
+	    android:paddingLeft="@dimen/activity_horizontal_margin"
+	    android:paddingRight="@dimen/activity_horizontal_margin"
+	    android:paddingTop="@dimen/activity_vertical_margin"
+	    tools:context=".ChooseMajorActivity" >
+	    
+	    <TextView
+	        android:id="@+id/choose_major_header"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:text="@string/choose_major_header" />
+	
+	    
+	    <Button
+			android:id="@+id/applied_physics"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/applied_physics" />
+	
+	
+		<Button
+			android:id="@+id/art"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/art" />
+		
+		
+		<Button
+			android:id="@+id/art_education"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/art_education" />
+		
+		
+		<Button
+			android:id="@+id/biology"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/biology" />
+		
+		
+		<Button
+			android:id="@+id/chemistry"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/chemistry" />
+		
+		
+		<Button
+			android:id="@+id/communication_sciences"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/communication_sciences" />
+		
+		
+		<Button
+			android:id="@+id/computer_science"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:onClick="chooseComputerScience"
+			android:text="@string/computer_science" />
+		
+		
+		<Button
+			android:id="@+id/criminal_justice"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/criminal_justice" />
+		
+		
+		<Button
+			android:id="@+id/early_childhood_education"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/early_childhood_education" />
+		
+		
+		<Button
+			android:id="@+id/economics"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/economics" />
+		
+		
+		<Button
+			android:id="@+id/english"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/english" />
+		
+		
+		<Button
+			android:id="@+id/gender_and_womens_studies"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/gender_and_womens_studies" />
+		
+		
+		<Button
+			android:id="@+id/health_and_physical_education"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/health_and_physical_education" />
+		
+		
+		<Button
+			android:id="@+id/health_sciences"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/health_sciences" />
+		
+		
+		<Button
+			android:id="@+id/history"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/history" />
+		
+		
+		<Button
+			android:id="@+id/information_technology"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/information_technology" />
+		
+		
+		<Button
+			android:id="@+id/law_and_society"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/law_and_society" />
+		
+		
+		<Button
+			android:id="@+id/liberal_studies"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/liberal_studies" />
+		
+		
+		<Button
+			android:id="@+id/mathematical_sciences"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/mathematical_sciences" />
+		
+		
+		<Button
+			android:id="@+id/medical_laboratory_science"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/medical_laboratory_science" />
+		
+		
+		<Button
+			android:id="@+id/middle_grades_education"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/middle_grades_education" />
+		
+		
+		<Button
+			android:id="@+id/music"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/music" />
+		
+		
+		<Button
+			android:id="@+id/music_education"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/music_education" />
+		
+		
+		<Button
+			android:id="@+id/nursing"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/nursing" />
+		
+		
+		<Button
+			android:id="@+id/political_science"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/political_science" />
+		
+		
+		<Button
+			android:id="@+id/psychology"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/psychology" />
+		
+		
+		<Button
+			android:id="@+id/radiologic_sciences"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/radiologic_sciences" />
+		
+		
+		<Button
+			android:id="@+id/rehabilitation_science"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/rehabilitation_science" />
+		
+		
+		<Button
+			android:id="@+id/respiratory_therapy"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/respiratory_therapy" />
+		
+		
+		<Button
+			android:id="@+id/spanish"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/spanish" />
+		
+		
+		<Button
+			android:id="@+id/special_education"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/special_education" />
+		
+		
+		<Button
+			android:id="@+id/theatre"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/theatre" />
+		
+		
+		<Button
+			android:id="@+id/undecided"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:onClick="chooseUndecided"
+			android:text="@string/undecided" />
+		
+		
+		<Button
+			android:id="@+id/visual_art"
+			android:layout_width="200dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/visual_art" />
+	
+	</LinearLayout>
+	
+</ScrollView>

@@ -1,0 +1,40 @@
+<resources>
+    
+    <string name="choose_major_header">Choose the major that best suits your interest.</string>
+    <string name="title_activity_choose_major">Choose Major Interest</string>
+    <string name="applied_physics">Applied Physics</string>
+	<string name="art">Art</string>
+	<string name="art_education">Art Education</string>
+	<string name="biology">Biology</string>
+	<string name="chemistry">Chemistry</string>
+	<string name="communication_sciences">Communication Sciences</string>
+	<string name="computer_science">Computer Science</string>
+	<string name="criminal_justice">Criminal Justice</string>
+	<string name="early_childhood_education">Early Childhood Education</string>
+	<string name="economics">Economics</string>
+	<string name="english">English</string>
+	<string name="gender_and_womens_studies">Gender and Women\'s Studies</string>
+	<string name="health_and_physical_education">Health and Physical Education</string>
+	<string name="health_sciences">Health Sciences</string>
+	<string name="history">History</string>
+	<string name="information_technology">Information Technology</string>
+	<string name="law_and_society">Law and Society</string>
+	<string name="liberal_studies">Liberal Studies</string>
+	<string name="mathematical_sciences">Mathematical Sciences</string>
+	<string name="medical_laboratory_science">Medical Laboratory Science</string>
+	<string name="middle_grades_education">Middle Grades Education</string>
+	<string name="music">Music</string>
+	<string name="music_education">Music Education</string>
+	<string name="nursing">Nursing</string>
+	<string name="political_science">Political Science</string>
+	<string name="psychology">Psychology</string>
+	<string name="radiologic_sciences">Radiologic Sciences</string>
+	<string name="rehabilitation_science">Rehabilitation Science</string>
+	<string name="respiratory_therapy">Respiratory Therapy</string>
+	<string name="spanish">Spanish</string>
+	<string name="special_education">Special Education</string>
+	<string name="theatre">Theatre</string>
+	<string name="undecided">Undecided</string>
+	<string name="visual_art">Visual Art</string>
+    
+</resources>
