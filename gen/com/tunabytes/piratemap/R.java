@@ -252,7 +252,7 @@ containing a value of this type.
     public static final class id {
         public static final int LinearLayout1=0x7f050006;
         public static final int ScrollView1=0x7f050005;
-        public static final int action_settings=0x7f050037;
+        public static final int action_settings=0x7f050038;
         public static final int applied_physics=0x7f050008;
         public static final int art=0x7f050009;
         public static final int art_education=0x7f05000a;
@@ -269,6 +269,7 @@ containing a value of this type.
         public static final int email=0x7f05002e;
         public static final int english=0x7f050012;
         public static final int gender_and_womens_studies=0x7f050013;
+        public static final int googleMap=0x7f050037;
         public static final int health_and_physical_education=0x7f050014;
         public static final int health_sciences=0x7f050015;
         public static final int history=0x7f050016;
