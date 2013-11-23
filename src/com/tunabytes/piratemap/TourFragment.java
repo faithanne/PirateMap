@@ -14,6 +14,7 @@ public class TourFragment extends Fragment {
  
         View rootView = inflater.inflate(R.layout.fragment_tour, container, false);
          
+        setRetainInstance(true);
         return rootView;
     }
 	

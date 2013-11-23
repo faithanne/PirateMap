@@ -13,7 +13,7 @@ public class ScheduleFragment extends Fragment {
             Bundle savedInstanceState) {
  
         View rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
-         
+        setRetainInstance(true);
         return rootView;
     }
 	
