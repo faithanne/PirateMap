@@ -43,6 +43,7 @@ public class MapFragment extends Fragment {
 		super.onResume();
 		if (map == null) {
 			map = fragment.getMap();
+			map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 			map.moveCamera(CameraUpdateFactory.newCameraPosition(position));
 		}
 	}
