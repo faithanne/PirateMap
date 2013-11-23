@@ -15,12 +15,24 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class MapFragment extends Fragment {
 
+	public static final int OVERVIEW_TYPE = 0;
+	public static final int EVENT_TYPE = 1;
+	public static final int SCHEDULE_TYPE = 2;
+	public static final int TOUR_TYPE = 3;
+	
+	private static final LatLng AASU_LAT_LNG = new LatLng(31.98098, -81.16263);
+	private static final int OPTIMAL_ZOOM = 17;
+	private static final int OPTIMAL_BEARING = 320;
+	private static final int OPTIMAL_TILT = 30;
+	
+	private static int mapType = OVERVIEW_TYPE;
 	private SupportMapFragment fragment;
 	private GoogleMap map;
-	private static final LatLng aasuLatLng = new LatLng(31.98098, -81.16263);
-	private static final CameraPosition position = new CameraPosition.Builder()
-			.target(aasuLatLng).zoom(17).bearing(320).tilt(30).build();
-
+	
+	public static void setMapType(int type) {
+		mapType = type;
+	}
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -42,10 +54,25 @@ public class MapFragment extends Fragment {
 	public void onResume() {
 		super.onResume();
 		if (map == null) {
-			map = fragment.getMap();
-			map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-			map.moveCamera(CameraUpdateFactory.newCameraPosition(position));
+			getCampusMap();
+			MapLabeler.labelMap(map, mapType);
 		}
 	}
-
+	
+	private GoogleMap getCampusMap() {
+		CameraPosition position = getCampusCameraPosition();
+		map = fragment.getMap();
+		map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+		map.moveCamera(CameraUpdateFactory.newCameraPosition(position));
+		return map;
+	}
+	
+	private static CameraPosition getCampusCameraPosition() {
+		return new CameraPosition.Builder()
+		.target(AASU_LAT_LNG)
+		.zoom(OPTIMAL_ZOOM)
+		.bearing(OPTIMAL_BEARING)
+		.tilt(OPTIMAL_TILT)
+		.build();
+	}
 }
