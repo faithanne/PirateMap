@@ -1,8 +1,14 @@
 package com.tunabytes.piratemap;
 
+import java.io.FileOutputStream;
+import java.util.LinkedList;
 import java.util.Locale;
+
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -10,8 +16,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 	
@@ -29,12 +40,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	// This custom ViewPager was designed so that horizontal scrolling would be disbaled between
 	// the four fragments. I am not sure if this scroll disabling will have any effect on the
 	// internal fragments, namely the map.
-	NoSwipeViewPager mViewPager;
+	private NoSwipeViewPager mViewPager;
+	public final static String NUM_TABS_EXTRA = "com.tunabytes.piratemap.num_tabs";
+	private int numTabs;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		numTabs = getIntent().getExtras().getInt(NUM_TABS_EXTRA);
 
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
@@ -129,7 +143,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		@Override
 		public int getCount() {
 			// Tour, Map, Schedule, Events
-			return 4;
+			return numTabs;
 		}
 
 		@Override
@@ -148,6 +162,140 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			return null;
 		}
 		
+	}
+	
+	/**
+	 * Add course button in the Schedule fragment
+	 */
+	public void addCourse(View view) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+		LayoutInflater inflater = getLayoutInflater();
+		final View dialogView = inflater.inflate(R.layout.dialog_course_entry, null);
+		builder.setView(dialogView);
+		builder.setTitle(R.string.title_dialog_course_entry);
+		
+		
+		builder.setPositiveButton(getString(R.string.add), new DialogInterface.OnClickListener(){
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				
+				String coursePrefix = ((Spinner) dialogView.findViewById(
+						R.id.course_prefix_spinner)).getSelectedItem().toString();
+				String courseNumber = ((EditText) dialogView.findViewById(
+						R.id.course_number_edittext)).getText().toString();
+				String coursePostfix = ((Spinner) dialogView.findViewById(
+						R.id.course_postfix_spinner)).getSelectedItem().toString();
+				
+				String building = ((Spinner) dialogView.findViewById(
+						R.id.building_name_spinner)).getSelectedItem().toString();
+				
+				String roomNumber = ((EditText) dialogView.findViewById(
+						R.id.course_room_edittext)).getText().toString();
+				String roomPostfix = ((Spinner) dialogView.findViewById(
+						R.id.room_postfix_spinner)).getSelectedItem().toString();
+				
+				String professor = ((EditText) dialogView.findViewById(
+						R.id.course_professor_edittext)).getText().toString();
+				
+				String startHour = ((Spinner) dialogView.findViewById(
+						R.id.start_hour_spinner)).getSelectedItem().toString();
+				String startMinute = ((Spinner) dialogView.findViewById(
+						R.id.start_minute_spinner)).getSelectedItem().toString();
+				String startAmPm = ((Spinner) dialogView.findViewById(
+						R.id.start_am_pm_spinner)).getSelectedItem().toString();
+				
+				String endHour = ((Spinner) dialogView.findViewById(
+						R.id.end_hour_spinner)).getSelectedItem().toString();
+				String endMinute = ((Spinner) dialogView.findViewById(
+						R.id.end_minute_spinner)).getSelectedItem().toString();
+				String endAmPm = ((Spinner) dialogView.findViewById(
+						R.id.end_am_pm_spinner)).getSelectedItem().toString();
+				
+				String days = "";
+				
+				CheckBox mCheckBox = (CheckBox) dialogView.findViewById(R.id.m_checkedtext);
+				if(mCheckBox != null && mCheckBox.isChecked()) {
+					days += "M";
+				}
+				
+				CheckBox tCheckBox = (CheckBox) dialogView.findViewById(R.id.t_checkedtext);
+				if(tCheckBox != null && tCheckBox.isChecked()) {
+					days += "T";
+				}
+				
+				CheckBox wCheckBox = (CheckBox) dialogView.findViewById(R.id.w_checkedtext);
+				if(wCheckBox != null && wCheckBox.isChecked()) {
+					days += "W";
+				}
+				
+				CheckBox hCheckBox = (CheckBox) dialogView.findViewById(R.id.h_checkedtext);
+				if(hCheckBox != null && hCheckBox.isChecked()) {
+					days += "H";
+				}
+				
+				CheckBox fCheckBox = (CheckBox) dialogView.findViewById(R.id.f_checkedtext);
+				if(fCheckBox != null && fCheckBox.isChecked()) {
+					days += "F";
+				}
+				
+				Course course = new Course(coursePrefix + " " + courseNumber + coursePostfix,
+						building, roomNumber + roomPostfix, professor,
+						startHour + ":" + startMinute + " " + startAmPm,
+						endHour + ":" + endMinute + " " + endAmPm,
+						days);
+				
+				updateCourseList(course);
+				
+				// Reset the page adapter to reload the Schedule fragment
+				mViewPager.setAdapter(new SectionsPagerAdapter(getSupportFragmentManager()));
+				mViewPager.setCurrentItem(2);
+			}
+		});
+		
+		builder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener(){
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				
+			}
+		});
+		
+		AlertDialog dialog = builder.create();
+		dialog.show();
+	}
+	
+	/**
+	 * Adds the newly created course to the list of courses
+	 */
+	private void updateCourseList(Course newCourse) {
+		LinkedList<Course> courseList;
+		if(User.getCourseList() == null) {
+			courseList = new LinkedList<Course>();
+		} else {
+			courseList = new LinkedList<Course>(User.getCourseList());
+		}
+		
+		courseList.add(newCourse);
+		User.setCourseList(courseList);
+		
+		String filename = User.getUsername() + "courselist";
+		FileOutputStream fos;
+
+		try {
+		  fos = openFileOutput(filename, Context.MODE_PRIVATE);
+		  for(Course course : courseList) {
+			  fos.write((course.getId() + "*").getBytes());
+			  fos.write((course.getBuilding() + "*").getBytes());
+			  fos.write((course.getRoom() + "*").getBytes());
+			  fos.write((course.getProfessor() + "*").getBytes());
+			  fos.write((course.getStartTime() + "*").getBytes());
+			  fos.write((course.getEndTime() + "*").getBytes());
+			  fos.write((course.getDays() + "*").getBytes());
+			  fos.write("\n".getBytes());
+		  }
+		  fos.close();
+		} catch (Exception e) {
+		  e.printStackTrace();
+		}
 	}
 
 }

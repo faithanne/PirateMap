@@ -1,5 +1,10 @@
 package com.tunabytes.piratemap;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -20,17 +25,11 @@ import android.widget.TextView;
  * Activity which displays a login screen to the user, offering registration as well.
  */
 public class StudentLoginActivity extends Activity {
-	/**
-	 * A dummy authentication store containing known user names and passwords.
-	 */
-	private static final String[] DUMMY_CREDENTIALS = new String[]{"ma5668@stu.armstrong.edu:pass",
-		"ds8864@stu.armstrong.edu:pass", "fk4687@stu.armstrong.edu:pass",
-		"ab4478@stu.armstrong.edu:pass", "test:pass"};
 
 	/**
 	 * The default email to populate the email field with.
 	 */
-	public static final String EXTRA_EMAIL = "test";
+	public static final String EXTRA_EMAIL = "Student Email";
 
 	/**
 	 * Keep track of the login task to ensure we can cancel it if requested.
@@ -194,15 +193,50 @@ public class StudentLoginActivity extends Activity {
 				return false;
 			}
 
-			for(String credential : DUMMY_CREDENTIALS) {
-				String[] pieces = credential.split(":");
-				if(pieces[0].equals(mEmail)) {
-					// Account exists, return true if the password matches.
-					return pieces[1].equals(mPassword);
-				}
+			if(UserValidator.getInstance().validate(mEmail, mPassword)) {
+				setupUser(mEmail);
+				return true;
 			}
 			
-			return true;
+			return false;
+		}
+
+		private void setupUser(String mEmail) {
+			String username;
+			if(mEmail.equals("test")) {
+				username = mEmail;
+			} else {
+				username = mEmail.substring(0, mEmail.indexOf('@'));
+			}
+			
+			User.setUsername(username);
+			User.setCourseList(readCourseList(username));
+		}
+		
+		private LinkedList<Course> readCourseList(String username) {
+			LinkedList<Course> courseList = new LinkedList<Course>();
+			StringBuffer stringBuffer = new StringBuffer();
+			
+			try {
+			    BufferedReader inputReader = new BufferedReader(new InputStreamReader(
+			            openFileInput(username + "courselist")));
+			    String input;
+			                    
+			    while ((input = inputReader.readLine()) != null) {
+			        stringBuffer.append(input + "\n");
+			    }
+			} catch (IOException e) {
+			    return null;
+			}
+			
+			String[] input = stringBuffer.toString().split("\n");
+			
+			for(String line : input) {
+				String info[] = line.split("\\*");
+				courseList.add(new Course(info[0], info[1], info[2], info[3], info[4], info[5], info[6]));
+			}
+			
+			return courseList;
 		}
 
 		@Override
@@ -212,6 +246,7 @@ public class StudentLoginActivity extends Activity {
 
 			if(success) {
 				Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+				intent.putExtra(MainActivity.NUM_TABS_EXTRA, 4);
 				startActivity(intent);
 				finish();	// Close the activity if the user returns via up navigation
 			} else {

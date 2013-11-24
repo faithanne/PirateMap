@@ -79,14 +79,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.tunabytes.piratemap.WelcomeActivity" />
         </activity>
-        
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDL7Bu2MaGigXoAy8BdReWzRu5HxLpyT4o" />
+
     </application>
 
 </manifest>

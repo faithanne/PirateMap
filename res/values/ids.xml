@@ -2,5 +2,6 @@
 <resources>
 
     <item name="aasu_map" type="id" />
+    <item name="schedule_header" type="id" />
 
 </resources>

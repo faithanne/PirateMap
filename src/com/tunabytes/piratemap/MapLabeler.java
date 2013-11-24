@@ -69,6 +69,6 @@ public class MapLabeler {
 				.position(attraction.getLatLng())
 				.title(attraction.getName())
 				.icon(BitmapDescriptorFactory
-						.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
+						.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
 	}
 }

@@ -51,11 +51,13 @@ public class ChooseMajorActivity extends Activity {
 	
 	public void chooseComputerScience(View view) {
 		Intent intent = new Intent(this, MainActivity.class);
+		intent.putExtra(MainActivity.NUM_TABS_EXTRA, 2);
 		startActivity(intent);
 	}
 	
 	public void chooseUndecided(View view) {
 		Intent intent = new Intent(this, MainActivity.class);
+		intent.putExtra(MainActivity.NUM_TABS_EXTRA, 2);
 		startActivity(intent);
 	}
 

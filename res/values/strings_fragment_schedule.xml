@@ -1,6 +1,172 @@
 <resources>
     
     <string name="title_activity_schedule_fragment">ScheduleFragment</string>
-    <string name="hello_schedule">Hello schedule!</string>
+    <string name="title_dialog_course_entry">Enter course</string>
+    <string name="blank"></string>
+    <string name="no_schedule">It looks like you haven\'t set up your schedule yet. Click the
+        button below to add your courses!</string>
+    <string name="add_courses">Add Courses</string>
+    
+    <string name="course_number">Course</string>
+    <string name="course_room">Room</string>
+    <string name="course_professor">Professor</string>
+    <string name="start_time">Start time</string>
+    <string name="end_time">End time</string>
+    <string name="colon">:</string>
+    <string name="m">M</string>
+    <string name="t">T</string>
+    <string name="w">W</string>
+    <string name="h">H</string>
+    <string name="f">F</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    
+    <string-array name="course_prefix">
+        <item>AASU</item>
+		<item>ACCT</item>
+		<item>ADED</item>
+		<item>ANTH</item>
+		<item>ARTS</item>
+		<item>ASTR</item>
+		<item>BIOL</item>
+		<item>CEUG</item>
+		<item>CHEM</item>
+		<item>COMM</item>
+		<item>CRJU</item>
+		<item>CSCI</item>
+		<item>CSDS</item>
+		<item>CURI</item>
+		<item>ECEG</item>
+		<item>ECMT</item>
+		<item>ECON</item>
+		<item>ECUG</item>
+		<item>EDUC</item>
+		<item>EEXE</item>
+		<item>ENGL</item>
+		<item>ENGR</item>
+		<item>ETHC</item>
+		<item>EURO</item>
+		<item>FILM</item>
+		<item>FOUN</item>
+		<item>FREN</item>
+		<item>FYSL</item>
+		<item>FYSS</item>
+		<item>GEOG</item>
+		<item>GERO</item>
+		<item>GWST</item>
+		<item>WBIT</item>
+		<item>HIST</item>
+		<item>HLPR</item>
+		<item>HRDV</item>
+		<item>HSCA</item>
+		<item>HSCC</item>
+		<item>HSCP</item>
+		<item>HSCF</item>
+		<item>ISCI</item>
+		<item>ITEC</item>
+		<item>JOUR</item>
+		<item>LEAD</item>
+		<item>LWSO</item>
+		<item>LIST</item>
+		<item>MATH</item>
+		<item>MEDT</item>
+		<item>METR</item>
+		<item>MGSE</item>
+		<item>MHSA</item>
+		<item>MILS</item>
+		<item>MUSC</item>
+		<item>NSCI</item>
+		<item>NURS</item>
+		<item>PEBC</item>
+		<item>PEEC</item>
+		<item>PEHM</item>
+		<item>PHIL</item>
+		<item>PHSC</item>
+		<item>PHTH</item>
+		<item>PHYS</item>
+		<item>POLS</item>
+		<item>PCLE</item>
+		<item>PSYC</item>
+		<item>PUBH</item>
+		<item>RADS</item>
+		<item>RDEN</item>
+		<item>READ</item>
+		<item>RELI</item>
+		<item>RESP</item>
+		<item>RHAB</item>
+		<item>SCED</item>
+		<item>SCIE</item>
+		<item>SMED</item>
+		<item>SOCI</item>
+		<item>SPAN</item>
+		<item>SPED</item>
+		<item>STAT</item>
+		<item>SABR</item>
+		<item>THEA</item>
+    </string-array>
+    
+    <string-array name="course_postfix">
+        <item></item>
+        <item>L</item>
+        <item>U</item>
+        <item>G</item>
+    </string-array>
+    
+    <string-array name="building_name">
+        <item>Armstrong Center</item>
+		<item>Ashmore Hall</item>
+		<item>Burnett Hall</item>
+		<item>Fine Arts Hall</item>
+		<item>Gamble Hall</item>
+		<item>Hawes Hall</item>
+		<item>Jenkins Hall</item>
+		<item>Memorial Center</item>
+		<item>Science Center</item>
+		<item>Solms Hall</item>
+		<item>University Hall</item>
+		<item>Victor Hall</item>
+    </string-array>
+    
+    <string-array name="room_postfix">
+        <item></item>
+        <item>A</item>
+        <item>B</item>
+    </string-array>
+    
+    <string-array name="hours">
+    	<item>00</item>
+    	<item>01</item>
+    	<item>02</item>
+    	<item>03</item>
+    	<item>04</item>
+    	<item>05</item>
+    	<item>06</item>
+    	<item>07</item>
+    	<item>08</item>
+    	<item>09</item>
+    	<item>10</item>
+    	<item>11</item>    
+    	<item>12</item>
+    </string-array>
+    
+  	<string-array name="minutes">
+  	    <item>00</item>
+		<item>05</item>
+		<item>10</item>
+		<item>15</item>
+		<item>20</item>
+		<item>25</item>
+		<item>30</item>
+		<item>35</item>
+		<item>40</item>
+		<item>45</item>
+		<item>50</item>
+		<item>55</item>
+  	</string-array>
+  	
+  	<string-array name="am_pm">
+		<item>AM</item>
+		<item>PM</item>  	    
+  	</string-array>
     
 </resources>
