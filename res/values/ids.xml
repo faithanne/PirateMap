@@ -3,5 +3,6 @@
 
     <item name="aasu_map" type="id" />
     <item name="schedule_header" type="id" />
+    <item name="tour_welcome" type="id" />
 
 </resources>

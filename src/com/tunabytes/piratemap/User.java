@@ -7,6 +7,7 @@ public class User {
 	private static User instance = null;
 	private static LinkedList<Course> courseList;
 	private static String username;
+	private static LinkedList<Event> eventList;
 	
 	protected User() {
 		
@@ -21,6 +22,10 @@ public class User {
 	
 	public static LinkedList<Course> getCourseList() {
 		return courseList;
+	}
+	
+	public static LinkedList<Event> getEventList() {
+		return eventList;
 	}
 	
 	public static void setCourseList(LinkedList<Course> courseList) {
