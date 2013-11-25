@@ -14,9 +14,10 @@ public class MapLabeler {
 		// Exists only to defeat instantiation.
 	}
 
-	public static GoogleMap labelMap(GoogleMap map, int mapType) {
+	public static GoogleMap labelMap(int mapType) {
+		GoogleMap map = MapFragment.getMap();
 		map.clear();
-		List<Attraction> attractions = getBuildingLabels();
+		List<Attraction> attractions = getOverviewLabels();
 		if (mapType == MapFragment.EVENT_TYPE) {
 			attractions.addAll(getEventLabels());
 		}
@@ -32,12 +33,12 @@ public class MapLabeler {
 		return map;
 	}
 	
-	private static List<Attraction> getBuildingLabels() {
-		List<Attraction> buildings = new ArrayList<Attraction>();
-		buildings.add(new Attraction(new LatLng(31.98095, -81.16260), "Test-Name-Building1", "Test-Description-Building1"));
-		buildings.add(new Attraction(new LatLng(31.98096, -81.16261), "Test-Name-Building2", "Test-Description-Building2"));
-		buildings.add(new Attraction(new LatLng(31.98097, -81.16262), "Test-Name-Building3", "Test-Description-Building3"));
-		return buildings;
+	private static List<Attraction> getOverviewLabels() {
+		List<Attraction> overview = new ArrayList<Attraction>();
+		overview.add(new Attraction(new LatLng(31.981102513454655,-81.16238817572594), "Burnett Hall", "Test-Description-Building1"));
+		overview.add(new Attraction(new LatLng(31.980791675898626,-81.16108495742083), "Victor Hall", "Test-Description-Building2"));
+		overview.add(new Attraction(new LatLng(31.98097, -81.16262), "Gamble Hall", "Test-Description-Building3"));
+		return overview;
 	}
 	
 	private static List<Attraction> getEventLabels() {

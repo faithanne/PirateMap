@@ -1,6 +1,7 @@
 <resources>
-    
+
     <string name="title_activity_tour_fragment">Tour</string>
-    <string name="hello_tour">Hello tour!</string>
-    
+    <string name="start_tour">Start Tour</string>
+    <string name="welcome_tour">Welcome to Armstrong! Choose the Start Tour button below to begin your guided tour of the Armstrong Atlantic State University campus.</string>
+
 </resources>

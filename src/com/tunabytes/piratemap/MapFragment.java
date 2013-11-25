@@ -34,8 +34,8 @@ public class MapFragment extends Fragment {
 	private static final float TILT = 3.2886F;
 	
 	private static int mapType = OVERVIEW_TYPE;
-	private SupportMapFragment fragment;
-	private GoogleMap map;
+	private static SupportMapFragment fragment;
+	private static GoogleMap map;
 	
 	public static void setMapType(int type) {
 		mapType = type;
@@ -66,7 +66,7 @@ public class MapFragment extends Fragment {
 		Log.i("MapFragment", "onResume");
 		if (map == null) {
 			getCampusMap();
-			MapLabeler.labelMap(map, mapType);
+			MapLabeler.labelMap(mapType);
 		}
 	}
 	
@@ -80,7 +80,7 @@ public class MapFragment extends Fragment {
 		return map;
 	}
 	
-	private CameraPosition getZoomOutCameraPosition() {
+	private static CameraPosition getZoomOutCameraPosition() {
 		return new CameraPosition.Builder()
 		.target(ZOOMOUT)
 		.zoom(ZOOMOUT_ZOOM)
@@ -89,7 +89,7 @@ public class MapFragment extends Fragment {
 		.build();
 	}
 	
-	private CameraPosition getCampusCameraPosition() {
+	private static CameraPosition getCampusCameraPosition() {
 		return new CameraPosition.Builder()
 		.target(AASU)
 		.zoom(AASU_ZOOM)
@@ -98,7 +98,7 @@ public class MapFragment extends Fragment {
 		.build();
 	}
 	
-	private void executeArmstrongFlyIn() {
+	private static void executeArmstrongFlyIn() {
 		CameraPosition position = getZoomOutCameraPosition();
 		map.moveCamera(CameraUpdateFactory.newCameraPosition(position));
 		map.setOnMapLoadedCallback(new OnMapLoadedCallback() {
@@ -125,5 +125,12 @@ public class MapFragment extends Fragment {
 				Log.i("MapFragment", "onCameraChange: " + position);
 			}
 		});
+	}
+	
+	public static GoogleMap getMap(){
+		map = fragment.getMap();
+		map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+		executeArmstrongFlyIn();
+		return map;
 	}
 }
