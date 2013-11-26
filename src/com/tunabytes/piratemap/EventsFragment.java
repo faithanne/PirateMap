@@ -32,13 +32,14 @@ public class EventsFragment extends Fragment {
 			header.setText(R.string.no_events);
 		} else {
 			for (Event event : events) {
-				TextView courseView = new TextView(rootView.getContext());
-				courseView.setText(event.toString());
+				TextView eventView = new TextView(rootView.getContext());
+				TextView headerView = (TextView) rootView.findViewById(R.id.event_header);
+				headerView.setText(event.getHeader());
+				TextView infoView = (TextView) rootView.findViewById(R.id.event_info);
+				infoView.setText(event.getInfo());
 				LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
 						LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-				params.setMargins(0, 0, 0, 20);
-				courseView.setLayoutParams(params);
-				layout.addView(courseView);
+				layout.addView(eventView);
 			}
 		}
 

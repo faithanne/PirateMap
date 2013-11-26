@@ -22,4 +22,5 @@ public class Event {
 	public String getInfo() {
 		return info;
 	}
+
 }

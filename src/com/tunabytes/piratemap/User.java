@@ -31,6 +31,10 @@ public class User {
 	public static void setCourseList(LinkedList<Course> courseList) {
 		User.courseList = courseList;
 	}
+	
+	public static void setEventList(LinkedList<Event> eventList) {
+		User.eventList = eventList;
+	}
 
 	public static String getUsername() {
 		return username;

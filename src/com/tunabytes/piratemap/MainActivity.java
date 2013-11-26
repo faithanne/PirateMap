@@ -347,5 +347,77 @@ public class MainActivity extends FragmentActivity implements
 	public String getMajor() {
 		return major;
 	}
+	
+	public void addEvent(View view) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+		LayoutInflater inflater = getLayoutInflater();
+		final View dialogView = inflater.inflate(R.layout.dialog_event_entry, null);
+		builder.setView(dialogView);
+		builder.setTitle("Add an Event");
+		
+		
+		builder.setPositiveButton(getString(R.string.add), new DialogInterface.OnClickListener(){
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+			
+				String header = ((EditText) dialogView.findViewById(
+						R.id.header_edittext)).getText().toString();
+				
+				String date = ((EditText) dialogView.findViewById(
+						R.id.date_edittext)).getText().toString();
+				
+				String info = ((EditText) dialogView.findViewById(
+						R.id.info_edittext)).getText().toString();
+				
+				Event event = new Event(date, header, info);
+				
+				updateEventList(event);
+				
+				// Reset the page adapter to reload the Schedule fragment
+				mViewPager.setAdapter(new SectionsPagerAdapter(getSupportFragmentManager()));
+				mViewPager.setCurrentItem(3);
+			}
+		});
+
+
+		builder.setNegativeButton(getString(R.string.cancel),
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+
+					}
+				});
+
+		AlertDialog dialog = builder.create();
+		dialog.show();
+	}
+	
+	private void updateEventList(Event newEvent) {
+		LinkedList<Event> eventList;
+		if (User.getCourseList() == null) {
+			eventList = new LinkedList<Event>();
+		} else {
+			eventList = new LinkedList<Event>(User.getEventList());
+		}
+
+		eventList.add(newEvent);
+		User.setEventList(eventList);
+
+		String filename = User.getUsername() + "eventlist";
+		FileOutputStream fos;
+
+		try {
+			fos = openFileOutput(filename, Context.MODE_PRIVATE);
+			for (Event event : eventList) {
+				fos.write((event.getDate() + "*").getBytes());
+				fos.write((event.getHeader() + "*").getBytes());
+				fos.write((event.getInfo() + "*").getBytes());
+				fos.write("\n".getBytes());
+			}
+			fos.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

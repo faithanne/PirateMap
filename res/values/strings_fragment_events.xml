@@ -1,8 +1,8 @@
 <resources>
     
     <string name="title_activity_events_fragment">EventsFragment</string>
-    <string name="no_events">No events!</string>
-    <string name="event_header_text">No events!</string>
-    <string name="event_info_text">No events!</string>
+    <string name="no_events">ACM meeting</string>
+    <string name="event_header_text">ACM meeting</string>
+    <string name="event_info_text">Ruby Workshop!</string>
     
 </resources>
