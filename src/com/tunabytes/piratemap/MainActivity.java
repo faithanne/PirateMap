@@ -41,15 +41,14 @@ public class MainActivity extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	// This custom ViewPager was designed so that horizontal scrolling would be
-	// disbaled between
+	// disabled between
 	// the four fragments. I am not sure if this scroll disabling will have any
 	// effect on the
 	// internal fragments, namely the map.
 	private NoSwipeViewPager mViewPager;
 	public final static String NUM_TABS_EXTRA = "com.tunabytes.piratemap.num_tabs";
-	public final static String MAJOR_EXTRA = "com.tunabytes.piratemap.major";
 
-	private String major;
+	private static String major = "Undecided";
 	private int numTabs;
 
 	@Override
@@ -57,8 +56,7 @@ public class MainActivity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		numTabs = getIntent().getExtras().getInt(NUM_TABS_EXTRA);
-		major = getIntent().getExtras().getString(MAJOR_EXTRA);
-
+		
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -344,7 +342,11 @@ public class MainActivity extends FragmentActivity implements
 		}
 	}
 
-	public String getMajor() {
+	public static void setMajor(String major) {
+		MainActivity.major = major;
+	}
+	
+	public static String getMajor() {
 		return major;
 	}
 	

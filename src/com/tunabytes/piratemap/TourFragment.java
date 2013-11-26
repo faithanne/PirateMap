@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 public class TourFragment extends Fragment {
 
-	private String major;
+	private static String major;
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -18,10 +18,10 @@ public class TourFragment extends Fragment {
  
         View rootView = inflater.inflate(R.layout.fragment_tour, container, false);
          
-        Activity parent = getActivity();
-        major = ((MainActivity) parent).getMajor();
-        
-        if (major.equals("CS")) {
+        major = MainActivity.getMajor();
+        Log.i("TourFragment", "Major: " + major);
+  
+        if (major != null && major.equals("CS")) {
         	MapFragment.setMapType(MapFragment.TOUR_TYPE);
         	MapLabeler.labelMap(MapFragment.TOUR_TYPE);
         }
