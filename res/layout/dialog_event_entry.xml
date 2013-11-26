@@ -9,39 +9,32 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".CourseEntryActivity" >
-        
-       
+
     <EditText
         android:id="@+id/header_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:hint="Header"
+        android:layout_marginBottom="20dp"
         android:ems="10"
-        android:layout_marginBottom="20dp">
-
+        android:hint="@string/event_header" >
     </EditText>
-    
+
     <EditText
         android:id="@+id/date_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:hint="mm/dd/yyyy"
+        android:layout_marginBottom="20dp"
         android:ems="10"
-        android:layout_marginBottom="20dp">
-
+        android:hint="@string/event_date_hint" >
     </EditText>
-    
+
     <EditText
         android:id="@+id/info_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:hint="Event Information"
+        android:layout_marginBottom="20dp"
         android:ems="10"
-        android:layout_marginBottom="20dp">
-
+        android:hint="@string/event_info" >
     </EditText>
 
 </LinearLayout>
