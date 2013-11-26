@@ -182,8 +182,8 @@ public class MainActivity extends FragmentActivity implements
 
 	public void goToMap(View view) {
 
-		//mViewPager.setAdapter(new SectionsPagerAdapter(
-		//		getSupportFragmentManager()));
+		mViewPager.setAdapter(new SectionsPagerAdapter(
+				getSupportFragmentManager()));
 		mViewPager.setCurrentItem(1);
 
 	}

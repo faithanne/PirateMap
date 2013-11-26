@@ -18,6 +18,10 @@ public class MapLabeler {
 		GoogleMap map = MapFragment.getMap();
 		map.clear();
 		List<Attraction> attractions = getOverviewLabels();
+		for (Attraction attraction : attractions) {
+			addOverviewAttraction(map, attraction);
+		}
+		attractions.clear();
 		if (mapType == MapFragment.EVENT_TYPE) {
 			attractions.addAll(getEventLabels());
 		}
@@ -28,7 +32,7 @@ public class MapLabeler {
 			attractions.addAll(getTourLabels());
 		}
 		for (Attraction attraction : attractions) {
-			addAttraction(map, attraction);
+			addOtherAttraction(map, attraction);
 		}
 		return map;
 	}
@@ -75,33 +79,42 @@ public class MapLabeler {
 	
 	private static List<Attraction> getEventLabels() {
 		List<Attraction> eventLabels = new ArrayList<Attraction>();
-		eventLabels.add(new Attraction(new LatLng(31.98095, -81.16260), "Test-Name-Event1", "Test-Description-Event1"));
-		eventLabels.add(new Attraction(new LatLng(31.98096, -81.16261), "Test-Name-Event2", "Test-Description-Event2"));
-		eventLabels.add(new Attraction(new LatLng(31.98097, -81.16262), "Test-Name-Event3", "Test-Description-Event3"));
 		return eventLabels;
 	}
 	
 	private static List<Attraction> getScheduleLabels() {
 		List<Attraction> scheduleLabels = new ArrayList<Attraction>();
-		scheduleLabels.add(new Attraction(new LatLng(31.98095, -81.16260), "Test-Name-Schedule1", "Test-Description-Schedule1"));
-		scheduleLabels.add(new Attraction(new LatLng(31.98096, -81.16261), "Test-Name-Schedule2", "Test-Description-Schedule2"));
-		scheduleLabels.add(new Attraction(new LatLng(31.98097, -81.16262), "Test-Name-Schedule3", "Test-Description-Schedule3"));
 		return scheduleLabels;
 	}
 	
 	private static List<Attraction> getTourLabels() {
 		List<Attraction> tourLabels = new ArrayList<Attraction>();
-		tourLabels.add(new Attraction(new LatLng(31.98095, -81.16260), "Test-Name-Tour1", "Test-Description-Tour1"));
-		tourLabels.add(new Attraction(new LatLng(31.98096, -81.16261), "Test-Name-Tour2", "Test-Description-Tour2"));
-		tourLabels.add(new Attraction(new LatLng(31.98097, -81.16262), "Test-Name-Tour3", "Test-Description-Tour3"));
+		tourLabels.add(new Attraction(new LatLng(31.97988731178767,-81.16074029356241), "SC202 - Department of Computer Science and Information Technology", "SC202"));
+		tourLabels.add(new Attraction(new LatLng(31.97981223210229,-81.1606490984559), "SC121 - ACM Lab", "SC121"));
+		tourLabels.add(new Attraction(new LatLng(31.980097762093468,-81.16078555583954), "SC129 - Computer Lab", "Computer Lab"));
+		tourLabels.add(new Attraction(new LatLng(31.979494564723417,-81.1609360948205), "SC2506 - Classroom", "Classroom"));
+		tourLabels.add(new Attraction(new LatLng(31.979433704419677,-81.16112049669027), "SC1503A - Computer Lab", "Computer Lab"));
+		tourLabels.add(new Attraction(new LatLng(31.9794305760852,-81.16121873259544), "SC1503B - Computer Lab", "Computer Lab"));
 		return tourLabels;
 	}
 	
-	private static void addAttraction(GoogleMap map, Attraction attraction) {
+	private static void addOverviewAttraction(GoogleMap map, Attraction attraction) {
 		map.addMarker(new MarkerOptions()
 				.position(attraction.getLatLng())
 				.title(attraction.getName())
+				.snippet(attraction.getDescription())
 				.icon(BitmapDescriptorFactory
 						.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
 	}
+	
+	private static void addOtherAttraction(GoogleMap map, Attraction attraction) {
+		map.addMarker(new MarkerOptions()
+				.position(attraction.getLatLng())
+				.title(attraction.getName())
+				.snippet(attraction.getDescription())
+				.icon(BitmapDescriptorFactory
+						.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+	}
+	
+	
 }
